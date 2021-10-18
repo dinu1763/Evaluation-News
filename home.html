@@ -14,7 +14,7 @@
     }
 </style>
 <body>
-    <h1>Top Trending News</h1>
+    <h1>Top News</h1>
     <div id="container">
 
     </div>
@@ -43,11 +43,12 @@ function fetchNews(){
 
 function showNews(data){
     news.innerHTML = null
-    data.forEach(({title,description,urlToImage})=>{
+   
+    data.forEach(({title,description,urlToImage,url})=>{
         let h2 = document.createElement('h2');
         let img = document.createElement("img");
         let p = document.createElement("p");
-        let btn = document.createElement("button")
+        let btn = document.createElement("button");
         img.src = urlToImage;
         img.style.width = "30%";
         img.style.height = "30%";
@@ -55,8 +56,19 @@ function showNews(data){
         h2.innerText = title;
         h2.style.marginTop = "30px";
         btn.innerText = "Read More";
+        btn.onclick = ()=>{
+            // details(url);
+            window.location.href = url;
+            console.log(url);
+        };
         news.append(h2, img,p,btn);
     });
+    
+}
+
+function details(data){
+    window.location.href = "news.html";
+            console.log(data)
 }
 fetchNews()
 </script>
