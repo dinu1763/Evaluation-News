@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-     *{
-        margin: 10px;
-        padding: 10px;
-    }
-    .align{
-        margin: -32px 40px;
-        margin-left: 508px;
-    }
-
-</style>
-<body>
-    <div class="align">
-        <input type="text" id="query" placeholder="search">
-        <button onclick="search()">Search</button>
-    </div>
-    
-    <div id="results">
-
-    </div>
-</body>
-</html>
-<script>
-    let results = document.getElementById("results");
+let results = document.getElementById("results");
     function search(){
         let query = document.getElementById("query").value;
         fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=a89c36665d6644ad9e157a0f9ca834dc`)
@@ -67,4 +36,3 @@
         results.append(h2, img,p,btn);
         });
     }
-</script>
